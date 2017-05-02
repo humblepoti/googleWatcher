@@ -89,7 +89,7 @@ def createDic(siteList, titleList, descList, param):
 def smtpSender(x):
    sender = configF["sender"]
    receiver = configF["receiver"]
-
+   serverM = configF["server"]
    if len(receiver)>1:
       receivers = ",".join(receiver)
    else:
@@ -104,7 +104,7 @@ def smtpSender(x):
        text = "These domains aren't yours. Please review them!\n\n\n%s" %sites
       else:
        text = "There were no domains found that do not belong to your organization"
-      s = smtplib.SMTP('localhost')
+      s = smtplib.SMTP(server)
       part1 = MIMEText(text, 'plain')
       msg.attach(part1)
       s.sendmail(sender, receiver, msg.as_string())
