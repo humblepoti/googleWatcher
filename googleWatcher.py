@@ -38,7 +38,9 @@ if not 'receiver' in configF:
 if not 'sender' in configF:
   sys.stderr.write("'Sender' parameter not found in the config.json file\n")
   exit(1)
-
+if not 'server' in configF:
+  sys.stderr.write("'Mail Server' parameter not found in the config.json file\n")
+  exit(1)
 
 # Methods
 
@@ -104,7 +106,7 @@ def smtpSender(x):
        text = "These domains aren't yours. Please review them!\n\n\n%s" %sites
       else:
        text = "There were no domains found that do not belong to your organization"
-      s = smtplib.SMTP(server)
+      s = smtplib.SMTP(serverM)
       part1 = MIMEText(text, 'plain')
       msg.attach(part1)
       s.sendmail(sender, receiver, msg.as_string())
