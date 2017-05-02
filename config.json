@@ -4,7 +4,7 @@
   "site": ["www.test.com","www.test2.subdomain.com"],
   "paramList": ["amazon", "okdok"],
   "sender": "sender@domain.com",
-  "receiver": ["receiver@domain.com", "receiver_2@domain.com"]
+  "receiver": ["receiver@domain.com", "receiver_2@domain.com"],
   "server": "localhost"
 
 
