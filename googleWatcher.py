@@ -110,7 +110,7 @@ def smtpSender(x):
       part1 = MIMEText(text, 'plain')
       msg.attach(part1)
       s.sendmail(sender, receiver, msg.as_string())
-   except SMTPException:
+   except smtplib.SMTPException:
       print ("Error: unable to send email")
 
 def verifyDomain(siteList):
